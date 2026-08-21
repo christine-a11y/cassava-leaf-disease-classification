@@ -1,3 +1,7 @@
+#  Երեխեք թասկերը նայեք  Issues -ի մեջ,  սրան ուշադրություն մի դարձրեք  զուտ թողել եմ կարողա համեմատենք հետո , վերջում կփոխենք ReadMe -ն
+
+
+
 # Cassava Leaf Disease Classification
 
 ## Project Overview
