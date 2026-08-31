@@ -92,10 +92,10 @@ Runs in Google Colab with a GPU runtime.
 
 | Model | Backbone | Input Size | Training Strategy |
 |---|---|:---:|---|
-| **Baseline CNN** | 3-block custom CNN (from scratch) | 384×384 | Trained end-to-end, 10 epochs |
+| **Baseline CNN** | 3-block custom CNN (from scratch) | 384×384 | Trained end-to-end, 5 epochs |
 | **ResNet50** | ImageNet-pretrained | 384×384 | Head-only (5 epochs) → fine-tune `layer4` (5 epochs) |
-| **EfficientNetV2-S** | ImageNet-pretrained | 384×384 | Head-only (5 epochs) → fine-tune stages 5+ (8 epochs) |
-| **DINOv2 ViT-Base** | Self-supervised ViT (`dinov2_vitb14`) | 224×224 | Full fine-tune (10 epochs) + label-smoothing refinement (3 epochs) |
+| **EfficientNetV2-S** | ImageNet-pretrained | 384×384 | Head-only (5 epochs) → fine-tune stages 5+ (5 epochs) |
+| **DINOv2 ViT-Base** | Self-supervised ViT (`dinov2_vitb14`) | 224×224 | 5 epochs |
 
 All transfer models replace the classifier head for 5-class output. Optimizer: AdamW with `CosineAnnealingLR`. Class-weighted `CrossEntropyLoss` is used to counter class imbalance; label smoothing (`0.1`) is used for later fine-tuning passes. DINOv2 training also uses mixed precision (`autocast` + `GradScaler`).
 
