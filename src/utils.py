@@ -293,3 +293,29 @@ def setup_gradual_unfreezing(model, unfreeze_from_stage=5):
         param.requires_grad = True
 
     return model
+
+
+
+def get_metrics(model, val_loader, device, class_names=None, verbose=True):
+    """Evaluates a PyTorch model and returns key classification metrics."""
+    model.eval()
+    all_preds, all_targets = [], []
+    with torch.no_grad():
+        for inputs, labels in val_loader:
+            inputs = inputs.to(device)
+            outputs = model(inputs)
+            _, preds = torch.max(outputs, 1)
+            all_preds.extend(preds.cpu().numpy())
+            all_targets.extend(labels.cpu().numpy())
+
+    metrics = {
+        "accuracy": accuracy_score(all_targets, all_preds),
+        "macro_precision": precision_score(all_targets, all_preds, average='macro', zero_division=0),
+        "macro_recall": recall_score(all_targets, all_preds, average='macro', zero_division=0),
+        "macro_f1": f1_score(all_targets, all_preds, average='macro', zero_division=0),
+    }
+
+    if verbose and class_names:
+        print(classification_report(all_targets, all_preds, target_names=class_names, zero_division=0))
+
+    return metrics
