@@ -42,13 +42,12 @@ Build and evaluate deep learning models for automatic cassava leaf disease class
 
 ```
 Cassava_Project/
-├── cassava_data/              # Downloaded via Kaggle API (train.csv, train_images/, label map)
-├── checkpoints/               # Saved model weights (.pth)
-├── history/                   # Training history logs (.json)
-├── plots/                     # EDA charts, learning curves, confusion matrices
-├── models/                    #
-├── results/                   #
-└──  fayler/                   #
+├── cassava_data/              # Kaggle dataset (train.csv, train_images/, label map)
+├── checkpoints/               # Model weights (.pth) for baseline, ResNet50, EffNetV2, DINOv2
+├── history/                   # Training metrics (.json) and curve plots (.png)
+├── plots/                     # EDA charts, confusion matrices, and misclassification plots
+├── ֆայլեր/                     # Modular Python scripts (dataset.py, model.py, train.py, utils.py, etc.)
+└── results/                   #Evaluation outputs and model_comparison.csv
 ``` 
 
 
@@ -142,10 +141,9 @@ else:
 |---|:---:|:---:|:---:|:---:|
 | Baseline CNN | 0.7150| 0.5571 | 0.4425 | 0.4717 |
 | ResNet50 (fine-tuned) | 0.8290 | 0.7116 | 0.7606 | 0.7316 |
-| EfficientNetV2-S (fine-tuned) | - | — | — | — |
+| EfficientNetV2-S (fine-tuned) | 0.6512 | 0.5021 | 0.5862 | 0.5268 |
 | DINOv2 ViT-Base | 0.8600 | 0.7526 | 0.7669 | 0.7582 |
 
-*(Pull actual numbers from `model_comparison.csv` / `results_df` once training has run — they weren't included in the pasted code output.)*
 
 ## Requirements
 
