@@ -17,10 +17,10 @@ Build and evaluate deep learning models for automatic cassava leaf disease class
 
 ## Team
 
-- [Christine Mkhitaryan] — Data & Preprocessing (
-- [Suzanna Makaryan] — Baseline Learning
-- [Ruzanna Torosyan] — Transfer Learning & Model Improvement
-- [Victoria Margaryan] — Evaluation & Explainability
+- Christine Mkhitaryan — Data & Preprocessing 
+- Suzanna Makaryan — Baseline Learning
+- Ruzanna Torosyan — Transfer Learning & Model Improvement
+- Victoria Margaryan — Evaluation & Explainability
 
   
 ## Dataset
