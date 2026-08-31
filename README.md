@@ -20,7 +20,7 @@ Build and evaluate deep learning models for automatic cassava leaf disease class
 - [Christine Mkhitaryan](https://github.com/christine-a11y) — Data & Preprocessing 
 - [Suzanna Makaryan](https://github.com/suzannamakaryan506-eng) — Baseline Learning
 - [Ruzanna Torosyan](https://github.com/Ruzanna-ai) — Transfer Learning & Model Improvement
-- [Victoria Margaryan](https://github.com/viktoryamargaryan) — Evaluation & Explainability
+- [Viktorya Margaryan](https://github.com/viktoryamargaryan) — Evaluation & Explainability
 
   
 ## Dataset
@@ -169,6 +169,6 @@ Distributed under the MIT License. See [`LICENSE`](LICENSE) for details.
 **Contributors:**
 * Christine Mkhitaryan
 * Ruzanna Torosyan
-* Viktoria Margaryan
+* Viktorya Margaryan
 * Syuzanna Makaryan
 
