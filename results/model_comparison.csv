@@ -1,0 +1,5 @@
+Model,accuracy,macro_precision,macro_recall,macro_f1
+BaselineCNN,0.715,0.5571,0.4425,0.4717
+ResNet50,0.829,0.7116,0.7606,0.7316
+EfficientNetV2S,0.6512,0.5021,0.5862,0.5268
+DINOv2Cassava,0.86,0.7526,0.7669,0.7582

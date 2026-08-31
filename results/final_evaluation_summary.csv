@@ -1,0 +1,2 @@
+Model,Accuracy,Macro Precision,Macro Recall,Macro F1,Weighted F1
+DINOv2Cassava,0.86,0.7526,0.7669,0.7582,0.8623

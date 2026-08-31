@@ -1,0 +1,6 @@
+Class,Precision,Recall,F1
+Cassava Bacterial Blight (CBB),0.5774,0.6359,0.6053
+Cassava Brown Streak Disease (CBSD),0.8243,0.7283,0.7733
+Cassava Green Mottle (CGM),0.7259,0.7883,0.7558
+Cassava Mosaic Disease (CMD),0.9599,0.9358,0.9477
+Healthy,0.6754,0.7461,0.709
