@@ -18,7 +18,7 @@ Build and evaluate deep learning models for automatic cassava leaf disease class
 ## Team
 
 - [Christine Mkhitaryan](https://github.com/christine-a11y) — Data & Preprocessing 
-- [Suzanna Makaryan] — Baseline Learning
+- [Suzanna Makaryan](https://github.com/suzannamakaryan506-eng) — Baseline Learning
 - [Ruzanna Torosyan](https://github.com/Ruzanna-ai) — Transfer Learning & Model Improvement
 - [Victoria Margaryan](https://github.com/viktoryamargaryan) — Evaluation & Explainability
 
