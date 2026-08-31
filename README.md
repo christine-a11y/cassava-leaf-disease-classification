@@ -51,7 +51,6 @@ Cassava_Project/
 └──  fayler/                   #
 ``` 
 
-# PROJECT STRUCTURE
 
 ## Setup
 
@@ -141,10 +140,10 @@ else:
 
 | Model | Accuracy | Macro Precision | Macro Recall | Macro F1 |
 |---|:---:|:---:|:---:|:---:|
-| Baseline CNN | — | — | — | — |
-| ResNet50 (fine-tuned) | — | — | — | — |
-| EfficientNetV2-S (head-only) | — | — | — | — |
-| DINOv2 ViT-Base | — | — | — | — |
+| Baseline CNN | 0.7150| 0.5571 | 0.4425 | 0.4717 |
+| ResNet50 (fine-tuned) | 0.8290 | 0.7116 | 0.7606 | 0.7316 |
+| EfficientNetV2-S (fine-tuned) | - | — | — | — |
+| DINOv2 ViT-Base | 0.8600 | 0.7526 | 0.7669 | 0.7582 |
 
 *(Pull actual numbers from `model_comparison.csv` / `results_df` once training has run — they weren't included in the pasted code output.)*
 
