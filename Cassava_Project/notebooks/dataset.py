@@ -1,4 +1,3 @@
-
 import os
 import torch
 from PIL import Image
@@ -37,7 +36,7 @@ class CassavaPyTorchDataset(Dataset):
 def get_dataloaders(
     train_df,
     val_df,
-    img_dir="cassava_data/train_images",
+    img_dir="/content/drive/MyDrive/Cassava_Project/cassava_data/train_images",
     img_size=384,
     batch_size=16,
     num_workers=0,
@@ -83,14 +82,14 @@ def get_weighted_criterion(train_df, label_col="label", device="cpu"):
     and returns a CrossEntropyLoss weighted by class imbalance.
     """
     classes = np.array(sorted(train_df[label_col].unique()))
-    weights = compute_class_weight(
+    weights =  calculate_class_weights(
         class_weight="balanced",
         classes=classes,
         y=train_df[label_col].values,
     )
     class_weights = torch.tensor(weights, dtype=torch.float).to(device)
 
-    print("⚖️ Computed Class Weights:", class_weights)
+    print(" Computed Class Weights:", class_weights)
 
     criterion_weighted = nn.CrossEntropyLoss(weight=class_weights)
     return criterion_weighted
