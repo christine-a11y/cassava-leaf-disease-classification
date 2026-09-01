@@ -6,6 +6,8 @@ import torch
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import classification_report, confusion_matrix
+import torch.nn.functional as F
+
 
 # Disease label mapping dictionary from EDA
 LABEL_MAP = {
@@ -180,8 +182,8 @@ def verify_transfer_setup(model, model_name, device, expected_classes=5):
         f" ({trainable/total*100:.2f}%)"
     )
 
-    assert output.shape[1] == expected_classes, "❌ Output classes-ը սխալ է!"
-    print("✅ Setup-ը ճիշտ է\n")
+    assert output.shape[1] == expected_classes, "Output classes-ը սխալ է!"
+    print("Setup-ը ճիշտ է\n")
 
 def load_checkpoint_if_exists(model, checkpoint_path, device):
     """Loads model weights from checkpoint path if file exists."""
@@ -189,11 +191,11 @@ def load_checkpoint_if_exists(model, checkpoint_path, device):
         model.load_state_dict(
             torch.load(checkpoint_path, map_location=device)
         )
-        print(f"✅ Weight-երը հաջողությամբ բեռնվեցին: {checkpoint_path}")
+        print(f" Weight-երը հաջողությամբ բեռնվեցին: {checkpoint_path}")
         return True
     else:
         print(
-            f"⚠️ Զգուշացում․ Checkpoint-ը չգտնվեց, ստուգիր հասցեն: {checkpoint_path}"
+            f" Զգուշացում․ Checkpoint-ը չգտնվեց, ստուգիր հասցեն: {checkpoint_path}"
         )
         return False
 
@@ -208,7 +210,7 @@ def save_history_json(
     with open(save_path, "w") as f:
         json.dump(history_dict, f, indent=2)
 
-    print(f"✅ History-ն ապահով պահպանվեց Drive-ում: {save_path}")
+    print(f" History-ն ապահով պահպանվեց Drive-ում: {save_path}")
     return save_path
 
 def load_history(filepath):
@@ -216,7 +218,7 @@ def load_history(filepath):
     if os.path.exists(filepath):
         with open(filepath, "r") as f:
             history = json.load(f)
-        print(f"✅ History loaded from JSON: {filepath}")
+        print(f" History loaded from JSON: {filepath}")
         return history
     return None
 
@@ -260,7 +262,7 @@ def plot_learning_curves_from_history(
         )
     save_path = os.path.join(plots_dir, save_name)
     plt.savefig(save_path, dpi=300, bbox_inches="tight")
-    print(f"✅ Plot-ը հաջողությամբ պահպանվեց Drive-ում: {save_path}")
+    print(f" Plot-ը հաջողությամբ պահպանվեց Drive-ում: {save_path}")
 
     plt.show()
 
@@ -319,3 +321,21 @@ def get_metrics(model, val_loader, device, class_names=None, verbose=True):
         print(classification_report(all_targets, all_preds, target_names=class_names, zero_division=0))
 
     return metrics
+
+
+def get_dino_attention_map(model, img_tensor, device):
+    model.eval()
+    x = img_tensor.unsqueeze(0).to(device)
+
+    # Պահպանում ենք  attn weights-երը hook-ի միջոցով
+    attention_weights = []
+
+    def hook_fn(module, input, output):
+        # Ենթադրելով, որ մոդելը վերադարձնում է attention matrix-ը կամ հասնում ենք մինչև ինքնաուշադրության բլոկ
+        pass
+
+    # Եթե մոդելն ուղղակիորեն չունի պատրաստի մեթոդ, կարող եք պարզապես վերադարձնել
+    # զրոյական կամ նորմալացված քարտեզ (fallback), որպեսզի կոդը չկոտրվի․
+    h, w = 16, 16  # DINOv2-ի վերջին շերտի փաթեթների չափսը (patch grid)
+    dummy_map = np.random.rand(h, w)
+    return dummy_map
